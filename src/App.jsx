@@ -67,7 +67,7 @@ export default function App() {
     )
   }
 
-  const handleFormReset = () => {
+  const resetFormFields = () => {
     setSelectedMatch('')
     setSelectedStand('')
     setTickets(1)
@@ -76,6 +76,10 @@ export default function App() {
     setPhone('')
     setDelivery('e-ticket')
     setTermsAccepted(false)
+  }
+
+  const handleFormReset = () => {
+    resetFormFields()
     showToast('Booking form and summary reset.')
   }
 
@@ -90,7 +94,7 @@ export default function App() {
     }
     setBookings((prev) => [...prev, newBooking])
     showToast(`Booking confirmed for ${name}! Total: ₹${totalAmount}`)
-    handleFormReset()
+    resetFormFields()
   }
 
   return (
